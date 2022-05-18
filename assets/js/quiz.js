@@ -1,43 +1,101 @@
 
-var Questions = [
+var ArrayV = [
                 {
                 "Q": "Commonly used data types DO NOT include:",
-                "1": "Strings",
-                "2": "Booleans",
-                "3": "Alerts",
-                "4": "Numbers",
-                "R": "3"        
+                "A": "Strings",
+                "B": "Booleans",
+                "C": "Alerts",
+                "D": "Numbers",
+                "R": "C"        
                 },
                    {
                 "Q": "The condition in an if/else statment is enclosed within ______ .",
-                "1": "Quotes",
-                "2": "Curly Brackets",
-                "3": "Parentheses",
-                "4": "Square Brackets",
-                "R": "2"        
+                "A": "Quotes",
+                "B": "Curly Brackets",
+                "C": "Parentheses",
+                "D": "Square Brackets",
+                "R": "B"        
                 },
                    {
                 "Q": "Arrays in Javascript can be used to store ______ .",
-                "1": "Numbers and Strings",
-                "2": "Other Arrays",
-                "3": "Booleans",
-                "4": "All of the above",
-                "R": "4"        
+                "A": "Numbers and Strings",
+                "B": "Other Arrays",
+                "C": "Booleans",
+                "D": "All of the above",
+                "R": "D"        
                 },
                    {
                 "Q": "String values must be enclosed within ______ when being assigned to variables.",
-                "1": "Commas",
-                "2": "Curly brackets",
-                "3": "Quotes",
-                "4": "Parenthesis",
-                "R": "4"        
+                "A": "Commas",
+                "B": "Curly brackets",
+                "C": "Quotes",
+                "D": "Parenthesis",
+                "R": "D"        
                 },
                  {
                 "Q": "A very useful tool used during development and debugging for printing content to the debugger is:",
-                "1": "Javascript",
-                "2": "Terminal / Bash",
-                "3": "For loops",
-                "4": "Console.log()",
-                "R": "4"        
+                "A": "Javascript",
+                "B": "Terminal / Bash",
+                "C": "For loops",
+                "D": "Console.log()",
+                "R": "D"        
                 }
-            ]
+            ];
+
+var option1 = document.querySelector("#opt1");
+var option2 = document.querySelector("#opt2");
+var option3 = document.querySelector("#opt3");
+var option4 = document.querySelector("#opt4");
+var displayResult = document.getElementById("disAnswer")
+var answer = ""
+
+
+
+option1.textContent = ArrayV[0]["A"];
+option2.textContent = ArrayV[0]["B"]
+option3.textContent = ArrayV[0]["C"]
+option4.textContent = ArrayV[0]["D"]
+var correctAnswer = ArrayV[0]["R"]
+
+option1.addEventListener("click", function() {
+    answer = "A"
+    answermsg(answer)
+});
+
+option2.addEventListener("click", function() {
+    answer = "B"
+    answermsg(answer)
+});
+
+option3.addEventListener("click", function() {
+    answer = "C"
+    answermsg(answer)
+});
+
+option4.addEventListener("click", function() {
+    answer = "D"
+    answermsg(answer)
+});
+
+var value = ""
+function answermsg(){
+    if (answer === correctAnswer) {
+        value = "Correct!!!"
+    }else{
+        value = "Incorrect!!!"     
+    }
+    displayResult.innerHTML = value
+}
+
+
+
+
+
+
+
+
+
+
+
+    
+
