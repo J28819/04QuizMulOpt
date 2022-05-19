@@ -26,16 +26,18 @@
 </nav>
  
 
-<div class="container-fluid text-center">    
+<div class="container-fluid text-left">    
   <div class="row content">
     <div class="col-sm-2 sidenav">
-        <h2>High Scores</h2>
+        <h3>Rankin Top 5</h3>
         <div class="text-left">
-        <p ><a href="#">1.- IML </a></p>
-        <p><a href="#">2.- NPM </a></p>
-        <p><a href="#">3.- BL </a></p>
-        <p><a href="#">4.- SLE</a></p>
-        <p><a href="#">5.- JMV</a></p>
+          <hr>
+        <h4 ><span>1.- </span><a id="first"></a></h4>
+        <h4><span>2.- </span><a id="second"></a></h4>
+        <h4><span>3.- </span><a id="third"></a></h4>
+        <h4><span>4.- </span><a id="fourth"></a></h4>
+        <h4><span>5.- </span><a id="fifth"></a></h4>
+        <hr>
 
         </div>
       
@@ -44,11 +46,14 @@
 
 
 
-        <div class="col-sm-8 text-center"> 
+        <div  class="col-sm-8 text-center"> 
             <h1>Coding Quiz Challenge </h1>
             <p>Try to answer the following code-related questions within the time limit.
                 Keep in mind that incorrect answers will penalize your scoreTime.
             </p>
+          <div id="questionsdiv">
+
+          
             <hr>
             <h3 id="Question">Commonly used data types DO NOT include: </h3>
             <hr>
@@ -60,6 +65,41 @@
                 <li><button class="btnquest" id="opt4" type="button">Numbers</button></li>
             </ul>
           </div>
+        </div>
+
+        <div id="conclusion">
+          <hr>
+          <hr>
+          <div class="container-fluid text-center">
+            <h2>All Done!!! </h2>
+            <h4 id="finalScore">Your final score is:  </h4>
+            <div >
+             
+              <input type="text" class="input" name="Initials" placeholder="Enter your Initials" />
+            </div>
+            <button class="btnconn" id="submit" type="button">Submit</button>
+          
+        </div>
+      </div>
+
+      <div id="highScore">
+        <hr>
+        <hr>
+        <div class="container-fluid text-center">
+          <h2>HighScores</h2>
+          <h4 id="Rankin">Your final score is:  </h4>
+          <hr>
+          <ul class="list text-center" >
+          </ul>
+          <hr>
+         
+          <button class="btnconn" id="back" type="button">Back</button>
+          <button class="btnconn" id="highscores" type="button">Clear HighScores</button>
+      </div>
+    </div>
+
+
+
             <hr>
             <div>
               <h4 class="container-fluid text-center" id="disAnswer"></h4>
@@ -69,15 +109,18 @@
 
     <div class="col-sm-2 sidenav">
         <h2>Timer</h2>
-        <h2 id="Counter">50</h2>
+        <h2 id="counter">50</h2>
     </div>
   </div>
 </div>
-<footer class="container-fluid text-center">
-  <h2 id="footermsg">Press here to start</h2>
+<footer class="container-fluid " >
+    <button class=" container-fluid btnStart" id="start" type="button">Start</button>
+  
 </footer>
 
 <script src="./assets/js/quiz.js"></script>
+<script src="./assets/js/tmr.js"></script>
+
 
 </body>
 
