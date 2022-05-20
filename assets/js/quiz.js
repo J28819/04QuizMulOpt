@@ -46,11 +46,12 @@ var ArrayV = [
 var showsConclusion = document.querySelector("#conclusion");
 var highScores = document.querySelector("#highScore");
 var startButton = document.querySelector("#start");
-var submit = document.querySelector("#submit")
+
 var option1 = document.querySelector("#opt1");
 var option2 = document.querySelector("#opt2");
 var option3 = document.querySelector("#opt3");
 var option4 = document.querySelector("#opt4");
+
 // Sections to Shows and Hide
 var showsQ = document.querySelector("#questionsdiv");
 var question = document.querySelector("#Question");
@@ -61,7 +62,6 @@ var correctAnswer = ""
 
 
 
-
 startButton.addEventListener("click", function(){
     startButton.setAttribute("style", "display: none")
     showsQ.setAttribute("style", "display: block")
@@ -69,11 +69,7 @@ startButton.addEventListener("click", function(){
     startquiz()
 })
 
-submit.addEventListener("click", function(){
-    console.log("submit Button")
-    showsConclusion.setAttribute("style", "display: none")
-    highScores.setAttribute("style", "display: block")
-});
+
 
 function startquiz() {
 
@@ -108,6 +104,7 @@ option4.addEventListener("click", function() {
     answer = "D"
     answermsg(answer)});
 
+//function to compute questions and answer
 function answermsg(){
     var value = ""
     if (answer === correctAnswer) {
@@ -123,6 +120,9 @@ function answermsg(){
     }
     displayResult.innerHTML = value
 }
+
+
+ 
 
 
 
