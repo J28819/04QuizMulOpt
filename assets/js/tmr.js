@@ -96,7 +96,7 @@ submit.addEventListener("click", function(){
    localStorage.setItem("HighScores", JSON.stringify(highscoresjson));
    }
    
-   renderhighScores(highscoresjson);
+   //renderhighScores(highscoresjson);
 
 
 
@@ -116,7 +116,7 @@ clear.addEventListener("click", function(){
   window.onload = function() {
     var tabledata = localStorage.getItem("HighScores");
     const myObj = JSON.parse(tabledata);
-    if (myObj.length > 0){
+    if (myObj !== null){
 
       myObj.sort(function (a, b) {
         return  b.score - a.score;
@@ -124,7 +124,7 @@ clear.addEventListener("click", function(){
       var text = "<table border='1'>"
       text += '<thead class="thead-dark"><tr><th scope="col">Initials</th><th scope="col">Score</th></tr></thead>' 
       for (let x in myObj) {
-        if (x <= 9){
+        if (x <= 7){
           text += "<tr><td>" + myObj[x].student + "</td><td>" + myObj[x].score + "</td></tr>";
         }
       }
