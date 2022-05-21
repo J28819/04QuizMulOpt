@@ -4,9 +4,16 @@ var displaycounter = document.getElementById("counter");
 var back = document.querySelector("#back")
 var clear = document.querySelector("#clear")
 var submit = document.querySelector("#submit")
+var scorename  = document.querySelector("#scorename");
+var scorenumber = document.querySelector("#scorenumber");
+
+
+
+
 var lastvalue = 0
 var num = 50;
 var action = ""
+
 
 
 
@@ -71,6 +78,9 @@ submit.addEventListener("click", function(){
       student: Initials,
       score: lastvalue
     };
+
+    scorename.textContent = Initials
+    scorenumber.textContent = lastvalue
     //localStorage.setItem("HighScores", JSON.stringify(studentObj));
     num = 0;
   var highscores = localStorage.getItem("HighScores");
@@ -94,18 +104,34 @@ submit.addEventListener("click", function(){
 
 
 
-function renderhighScores(w) {
-  w.forEach(element => {
-    console.log(element)
-  });
-    console.log(w[0]["student"]) 
-    console.log(w[0]["score"]) 
-
-}
+//
 
 clear.addEventListener("click", function(){
   localStorage.clear()
+  window.location.reload()
   });
+
+
+  //Load the HighScores when the on load
+  window.onload = function() {
+    var tabledata = localStorage.getItem("HighScores");
+    const myObj = JSON.parse(tabledata);
+    if (myObj.length > 0){
+
+      myObj.sort(function (a, b) {
+        return  b.score - a.score;
+      });
+      var text = "<table border='1'>"
+      text += '<thead class="thead-dark"><tr><th scope="col">Initials</th><th scope="col">Score</th></tr></thead>' 
+      for (let x in myObj) {
+        if (x <= 9){
+          text += "<tr><td>" + myObj[x].student + "</td><td>" + myObj[x].score + "</td></tr>";
+        }
+      }
+      text += "</table>"    
+      document.getElementById("demo").innerHTML = text;
+    }
+  }
   
 
 
