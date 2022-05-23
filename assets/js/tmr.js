@@ -8,17 +8,9 @@ var scorename  = document.querySelector("#scorename");
 var scorenumber = document.querySelector("#scorenumber");
 var timesUp = document.querySelector("#timesUp");
 var displayctd = document.querySelector('#displayctd');
-
-
-
-
 var lastvalue = 0;
 var num = 50;
 var action = "";
-
-
-
-
 
 timer.addEventListener("click", function(){
 timerct("Start");
@@ -34,6 +26,7 @@ function punishment(){
   }
 }
 
+// future implementation for + X number when they answer correct
 function reward(){
   num = num + 0;
 }

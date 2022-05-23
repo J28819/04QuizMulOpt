@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Bootstrap Example</title>
+  <title>Coding Quiz</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -24,13 +24,11 @@
  
   </div>
 </nav>
- 
-
 <div class="container-fluid text-left">    
   <div class="row content">
     <div class="col-sm-2 sidenav">
       <div class="container-fluid text-center">
-        <h3>Rankin Top 5</h3>
+        <h3>HighScores Top</h3>
       </div>
         <div>
           <table class="table table-dark table-hover" id="demo" style="width:100%"></table>
@@ -38,9 +36,6 @@
        
         
     </div>
-
-
-
         <div  class="col-sm-8 text-center"> 
           <div class="titletop" id="titletop">
             <h1>Coding Quiz Challenge </h1>
@@ -48,9 +43,7 @@
                 Keep in mind that incorrect answers will penalize your scoreTime.
             </p>
           </div>
-          <div id="questionsdiv">
-
-          
+          <div id="questionsdiv"> 
             <hr>
             <h3 id="Question">Commonly used data types DO NOT include: </h3>
             <hr>
@@ -72,7 +65,7 @@
             <h4>Your final score is: <span id="scoreValue">50</span> </h4>
             <div >
              
-              <input type="text"  id="Initials" placeholder="Enter your Initials" />
+              <input type="text"  id="Initials" placeholder="Enter your Name or  Initials" />
             </div>
             <button class="btnconn" id="submit" type="button">Submit</button>
           
@@ -102,9 +95,6 @@
           <button class="btnconn" id="clear" type="button">Clear HighScores</button>
       </div>
     </div>
-
-
-
             <hr>
             <div>
               <h4 class="container-fluid text-center" id="disAnswer"></h4>
@@ -128,7 +118,6 @@
     <button class=" container-fluid btnStart" id="start" type="button">Start</button>
   
 </footer>
-
 <script src="./assets/js/quiz.js"></script>
 <script src="./assets/js/tmr.js"></script>
 
