@@ -42,6 +42,8 @@ var ArrayV = [
                 }
             ];
 
+
+
 //Buttons to Press
 var showsConclusion = document.querySelector("#conclusion");
 var highScores = document.querySelector("#highScore");
@@ -53,71 +55,84 @@ var option4 = document.querySelector("#opt4");
 // Sections to Shows and Hide
 var showsQ = document.querySelector("#questionsdiv");
 var question = document.querySelector("#Question");
-var displayResult = document.querySelector('#disAnswer')
-var titletop = document.querySelector('#titletop')
-var answer = ""
-var step = 0
-var correctAnswer = ""
+var displayResult = document.querySelector('#disAnswer');
+var titletop = document.querySelector('#titletop');
+// variables init
+var answer = "";
+var step = 0;
+var correctAnswer = "";
+
+// make the Questions going randomly to preveent cheating...
+
+let shuffled = ArrayV
+  .map(value => ({ value, sort: Math.random() }))
+  .sort((a, b) => a.sort - b.sort)
+  .map(({ value }) => value)
 
 
+ArrayV = shuffled
 
 startButton.addEventListener("click", function(){
-    startButton.setAttribute("style", "display: none")
-    showsQ.setAttribute("style", "display: block")
-    displayResult.setAttribute("style", "display: block")
-    titletop.setAttribute("style", "display: none")
-    startquiz()
-})
+    startButton.setAttribute("style", "display: none");
+    showsQ.setAttribute("style", "display: block");
+    displayResult.setAttribute("style", "display: block");
+    titletop.setAttribute("style", "display: none");
+    startquiz();
+});
 
 
 
+// Start function quiz displaying the array Questions in random order 
 function startquiz() {
+
         if (step <= 4) {
             question.textContent = ArrayV[step]["Q"];
             option1.textContent = ArrayV[step]["A"];
-            option2.textContent = ArrayV[step]["B"]
-            option3.textContent = ArrayV[step]["C"]
-            option4.textContent = ArrayV[step]["D"]
-            correctAnswer = ArrayV[step]["R"]
+            option2.textContent = ArrayV[step]["B"];
+            option3.textContent = ArrayV[step]["C"];
+            option4.textContent = ArrayV[step]["D"];
+            correctAnswer = ArrayV[step]["R"];
         }else {
-            showsQ.setAttribute("style", "display: none")
-            showsConclusion.setAttribute("style", "display: block")
-            displayResult.innerHTML = "Finish!!!"
-            displayResult.setAttribute("style", "display: none")
-            timerct("Stop")
+            showsQ.setAttribute("style", "display: none");
+            showsConclusion.setAttribute("style", "display: block");
+            displayResult.innerHTML = "Finish!!!";
+            displayResult.setAttribute("style", "display: none");
+            timerct("Stop");
         }
 
 }
 
-
+// Answer functions
 option1.addEventListener("click", function() {
-    answer = "A" 
+    answer = "A";
     answermsg(answer)});
 option2.addEventListener("click", function() {
-    answer = "B"
+    answer = "B";
     answermsg(answer)});
 option3.addEventListener("click", function() {
-    answer = "C"
+    answer = "C";
     answermsg(answer)});
 option4.addEventListener("click", function() {
-    answer = "D"
+    answer = "D";
     answermsg(answer)});
 
 //function to compute questions and answer
 function answermsg(){
-    var value = ""
+    var value = "";
     if (answer === correctAnswer) {
-        value = "Correct!!!"
+        value = "Correct!!!";
         step = step + 1;
-        reward()
-        startquiz()
+        // function reward was to add  +5 to the timer for future implementation
+        reward();
+        startquiz();
     }else{
-        value = "Incorrect!!!"
+        value = "Incorrect!!!";
         step = step + 1;
-        punishment()
-        startquiz()     
+        // function punishment was to add  -5 to the timer
+        punishment();
+        startquiz();     
     }
-    displayResult.innerHTML = value
+    displayResult.innerHTML = value;
 }
 
 

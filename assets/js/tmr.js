@@ -1,31 +1,31 @@
 var timer = document.querySelector("#start");
 var scoreValue = document.querySelector("#scoreValue");
 var displaycounter = document.getElementById("counter");
-var back = document.querySelector("#back")
-var clear = document.querySelector("#clear")
-var submit = document.querySelector("#submit")
+var back = document.querySelector("#back");
+var clear = document.querySelector("#clear");
+var submit = document.querySelector("#submit");
 var scorename  = document.querySelector("#scorename");
 var scorenumber = document.querySelector("#scorenumber");
-var timesUp = document.querySelector("#timesUp")
-var displayctd = document.querySelector('#displayctd')
+var timesUp = document.querySelector("#timesUp");
+var displayctd = document.querySelector('#displayctd');
 
 
 
 
-var lastvalue = 0
+var lastvalue = 0;
 var num = 50;
-var action = ""
+var action = "";
 
 
 
 
 
 timer.addEventListener("click", function(){
-timerct("Start")
+timerct("Start");
 });
 
 back.addEventListener("click", function(){
-  document.location.reload()
+  document.location.reload();
   });
 
 function punishment(){
@@ -39,51 +39,56 @@ function reward(){
 }
 
 function timerct(x){
-  action = x
 
+  action = x
+  
   if (action === "Start"){
     setInterval(function(){
+      if(num > 51){
+        return
+      }
       //shows numbers in red if 10 sec close to times up
       if (num < 12){
-        displaycounter.setAttribute("style", "color: red")
+        displaycounter.setAttribute("style", "color: red");
       }
+      
 
       if (num > 0){
         num = num - 1;
       }
       if (num === 0){
-        timesUp.innerHTML = "Times Up!!!"
-        
+        timesUp.setAttribute("style", "color: red");
+        timesUp.innerHTML = "Times Up!!!";
         setInterval(() => {
-          timesUp.innerHTML = "Try Again!!!"
+          timesUp.innerHTML = "Try Again!!!";
           //displaycounter.setAttribute("style", "display: none");
           setInterval(() => {       
             window.location.reload();
           }, 2000);
         }, 1000);
-       
-        
       }
-     
-      displaycounter.innerHTML = num;
-      
+      displaycounter.innerHTML = num; 
+    
     },1000)
-  }
+
+
   
 
+  }
+
   if (action === "Stop"){
-    lastvalue = num
+    lastvalue = num;
     scoreValue.innerHTML = num;
-    displaycounter.setAttribute("style", "display: none")
-    action = "Restart"
+    displaycounter.setAttribute("style", "display: none");
+    num = 99;
       //renderMessage();
       return
  
   }
-
 }
 
 submit.addEventListener("click", function(){
+  
   showsConclusion.setAttribute("style", "display: none")
   highScores.setAttribute("style", "display: block")
 
@@ -100,26 +105,20 @@ submit.addEventListener("click", function(){
     scorename.textContent = Initials
     scorenumber.textContent = lastvalue
     
-    num = 0;
+    num = 99;
 
     displayctd.setAttribute("style", "display: none")
-  var highscores = localStorage.getItem("HighScores");
-  // console.log(highscores)
-//
+    var highscores = localStorage.getItem("HighScores");
    if(highscores === null){
     localStorage.setItem("HighScores", ("[" + JSON.stringify(studentObj) + "]") );
    }else{
-  var highscoresjson = JSON.parse(highscores)
+   var highscoresjson = JSON.parse(highscores)
   
    highscoresjson.push(studentObj)
-   //console.log(highscoresjson)
+   
    localStorage.setItem("HighScores", JSON.stringify(highscoresjson));
    }
-   
-   //renderhighScores(highscoresjson);
-
-
-
+  
 });
 
 
@@ -127,8 +126,8 @@ submit.addEventListener("click", function(){
 //
 
 clear.addEventListener("click", function(){
-  localStorage.clear()
-  window.location.reload()
+  localStorage.clear();
+  window.location.reload();
   });
 
 
@@ -141,8 +140,8 @@ clear.addEventListener("click", function(){
       myObj.sort(function (a, b) {
         return  b.score - a.score;
       });
-      var text = "<table border='1'>"
-      text += '<thead class="thead-dark"><tr><th scope="col">Initials</th><th scope="col">Score</th></tr></thead>' 
+      var text = "<table border='1'>";
+      text += '<thead class="thead-dark"><tr><th scope="col">Initials</th><th scope="col">Score</th></tr></thead>' ;
       for (let x in myObj) {
         if (x <= 6){
           text += "<tr><td>" + myObj[x].student + "</td><td>" + myObj[x].score + "</td></tr>";
