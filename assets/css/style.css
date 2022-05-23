@@ -67,6 +67,10 @@
   .sectionQuest {
     display:block;
   }
+  
+  #titletop{
+    display: blocks;
+  }
 
   #conclusion {
     display: none;

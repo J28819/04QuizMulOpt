@@ -46,16 +46,15 @@ var ArrayV = [
 var showsConclusion = document.querySelector("#conclusion");
 var highScores = document.querySelector("#highScore");
 var startButton = document.querySelector("#start");
-
 var option1 = document.querySelector("#opt1");
 var option2 = document.querySelector("#opt2");
 var option3 = document.querySelector("#opt3");
 var option4 = document.querySelector("#opt4");
-
 // Sections to Shows and Hide
 var showsQ = document.querySelector("#questionsdiv");
 var question = document.querySelector("#Question");
-var displayResult = document.getElementById("disAnswer")
+var displayResult = document.querySelector('#disAnswer')
+var titletop = document.querySelector('#titletop')
 var answer = ""
 var step = 0
 var correctAnswer = ""
@@ -65,14 +64,14 @@ var correctAnswer = ""
 startButton.addEventListener("click", function(){
     startButton.setAttribute("style", "display: none")
     showsQ.setAttribute("style", "display: block")
-    displayResult.setAttribute("style", "display: none")
+    displayResult.setAttribute("style", "display: block")
+    titletop.setAttribute("style", "display: none")
     startquiz()
 })
 
 
 
 function startquiz() {
-
         if (step <= 4) {
             question.textContent = ArrayV[step]["Q"];
             option1.textContent = ArrayV[step]["A"];
@@ -84,11 +83,11 @@ function startquiz() {
             showsQ.setAttribute("style", "display: none")
             showsConclusion.setAttribute("style", "display: block")
             displayResult.innerHTML = "Finish!!!"
+            displayResult.setAttribute("style", "display: none")
             timerct("Stop")
         }
 
 }
-
 
 
 option1.addEventListener("click", function() {
